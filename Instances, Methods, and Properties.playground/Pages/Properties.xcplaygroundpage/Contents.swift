@@ -21,6 +21,11 @@ let something = "It was the best of times"
 something.isEmpty
 
 let nothing = ""
+// o caso abaixo é usado para o x code, pois ele precisa estar dentro de um contexto
+if nothing.isEmpty {
+    print("preencha os campos")
+}
+//
 nothing.isEmpty
 /*:
  The same type safety rules apply for properties as with methods:

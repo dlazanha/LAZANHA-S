@@ -24,6 +24,7 @@
 var magic = "Now you see it"
 magic.removeAll()
 magic
+
 /*:
 ### Values
  

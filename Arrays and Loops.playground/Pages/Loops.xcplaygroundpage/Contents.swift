@@ -30,7 +30,8 @@ All of the code between the braces is the "body" of the loop. It’s the list of
 
  - Experiment: The `friend` constant was defined as part of the `for` loop. What do you think will happen if you uncomment the line below? Will the result be the last name the loop used. Or will it return an error?
  */
-//friend
+//friend   // esse friend nao da certo pq esta fora do escopo...do corpo...ou seja das chaves {  }
+
 /*:
 Next, make arrays that can change.\
 [Previous](@previous)  |  page 7 of 18  |  [Next: Mutable Arrays](@next)
