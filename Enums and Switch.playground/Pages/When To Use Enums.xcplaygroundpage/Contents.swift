@@ -22,6 +22,19 @@
 
  - callout(Exercise): Define enums to represent the team and position options. Check on the previous pages for a refresher on the syntax.
  */
+enum Team {
+    case blue, red, orange, amarelo
+    
+}
+
+let time: Team
+time = .blue
+
+enum Position {
+    case goleiro, zagueiro, atacante, lateral
+}
+let Positions: Position
+Positions = .atacante
 
 /*:
 On the next page, learn about comparing enums.\

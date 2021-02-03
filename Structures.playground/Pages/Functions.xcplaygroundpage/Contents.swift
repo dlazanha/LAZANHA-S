@@ -10,6 +10,8 @@ struct Rectangle {
     let height: Int
 }
 //: If you wanted to find out if one rectangle is larger than another, you could define a function like this:
+
+
 func isRectangle(_ rectangle: Rectangle, biggerThan rectangle2: Rectangle) -> Bool {
     let areaOne = rectangle.height * rectangle.width
     let areaTwo = rectangle2.height * rectangle2.width
@@ -17,7 +19,7 @@ func isRectangle(_ rectangle: Rectangle, biggerThan rectangle2: Rectangle) -> Bo
 }
 //: Then you could use the function to compare two rectangles:
 let rectangle = Rectangle(width: 10, height: 10)
-let anotherRectangle = Rectangle(width: 10, height: 30)
+let anotherRectangle = Rectangle(width: 10, height:30)
 
 isRectangle(rectangle, biggerThan: anotherRectangle)
 

@@ -6,6 +6,80 @@
  Think of another real-world object and its properties. Make up some actions or behaviors that the object might be able to perform. Write them all in plain English first in a comment:
  */
  // Add your English-language description of the type here. Make sure to add // before each line of your comment description.
+/*
+ car
+ - engine - mutavel - double - array
+ - doors - mutavel - int
+ - color - mutavel - string
+ - wells - mutavel - double
+ - acessories - mutavel - string
+ - gear box - mutavel - string
+ */
+
+struct car {
+    var engine: String
+    var doors: Int
+    var color: String
+    var wells: Double
+    var acessories: String
+    var gearBox: String
+
+    mutating func engine (fast:[2.0] , slow:[1.0]) {
+        engine = [0]
+    }
+    mutating func doors ()
+}
+
+//// exercico do professor
+
+/*
+
+
+
+Computer:
+
+- screenSize - imutável - Double
+- totalRAMinMB - mutável - Int
+- manufacturer - imutável - String
+- isOn - mutável - indica se o computador está ligado/desligado
+- turnOnOff - métodos de instância para ligar/desligar
+ */
+
+// Crie a estrutura baseado nas caracteríticas acima
+
+
+
+struct Computer {
+    let screenSize: Double
+    var totalRAMinMB: Int
+    let manufacturer: String
+    var isOn: Bool
+    
+    mutating func turnOnOff(mode: Bool) {
+        isOn = mode
+        if isOn {
+            print("Ligando o computador...")
+        } else {
+            print ("Desligando o computador...")
+        }
+    }
+    
+    func isComputerOn() -> String {
+        if isOn {
+        return ("ligado")
+    } else {
+            return("desligado")
+        }
+}
+var macBook = Computer(screenSize: 13.5, totalRAMinMB: 8, manufacturer: "Apple", isOn: false)
+
+//print(macBook.isComputerOn())
+//macBook.turnOnOff(mode: true)
+//print(macBook.isComputerOn())
+
+//macBook.screenSize = 15 - imutável
+macBook.totalRAMinMB = 16
+
 
 /*:
  - callout(Exercise): 

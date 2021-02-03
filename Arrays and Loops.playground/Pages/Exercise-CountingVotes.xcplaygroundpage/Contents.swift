@@ -20,8 +20,59 @@ This is also a lot of votes for Swift to use type inference to determine what ki
  
 //:  - callout(Exercise): Create two variables, one to count `yes` votes and one to count `no` votes. Each should start off with a value of zero.
 //:  - callout(Exercise): Create a `for…in` loop that iterates over one of the vote arrays and checks the value of each vote. If the vote is `true`, the loop should add one vote to the `yes` variable. If it's `false`, it should add one vote to the `no` variable.
+var yesVotes = 0
+var noVotes = 0
+
+for mascotVotation in shouldMascotChangeVotes {
+    if mascotVotation == true {  // colocar == true é opcional, pois o for ja entendde que é true
+        yesVotes += 1
+    }else {
+        noVotes += 1
+    }
+}
 
 //:  - callout(Exercise): After the loop has finished, write an `if` statement that compares the two values and prints a different message based on whether the vote passed or failed.
+if yesVotes > noVotes {
+    print("A mudança de mascote foi aprovada")
+} else {
+    print("A mudança de mascote foi reprovada")
+}
+
+/// votação para a máquina de café
+var yesVotesMachine = 0
+var noVotesMachine = 0
+
+for coffeMachineVotation in shouldInstallCoffeeVendingMachineVotes {
+    if coffeMachineVotation == true {  // colocar == true é opcional, pois o for ja entendde que é true
+        yesVotesMachine += 1
+    }else {
+        noVotesMachine += 1
+    }
+    
+}
+if yesVotesMachine > noVotesMachine {
+    print("Aprovado")
+} else {
+    print("Reprovado")
+}
+
+/// para outra votação
+var yesMoreVotes = 0
+var noMoreVotes = 0
+
+for moreVotation in shouldHaveMorePollOptionsVotes {
+    if moreVotation == true {  // colocar == true é opcional, pois o for ja entendde que é true
+        yesMoreVotes += 1
+    }else {
+        noMoreVotes += 1
+    }
+    
+}
+if yesMoreVotes > noMoreVotes {
+    print("Aprovado fazer outra votação")
+} else {
+    print("Reprovado fazer outra votação")
+}
 
 /*:
  - callout(Exercise): Test your code by calling the `for…in` loop on each of the vote arrays.\
@@ -42,6 +93,25 @@ Which measures won by popular vote?
  `Should we change the mascot? 54 yes, 23 no`
  */
 // Add your vote-processing function here:
+func printResults(forIssue issue: String, withVotes votes: [Bool]) {
+  
+    var yesVotes = 0
+    var noVotes = 0
+    
+    for vote in votes {
+        if vote == true {  // colocar == true é opcional, pois o for ja entendde que é true
+            yesVotes += 1
+        } else {
+            noVotes += 1
+        }
+    }
+    print ("\(yesVotes) sim, \(noVotes) no")
+}
+
+// tabulando a votação usando a função
+printResults(issue: "Troca de mascote", votes: shouldMascotChangeVotes)
+printResults(issue: "Máquina de café", votes: shouldInstallCoffeeVendingMachineVotes)
+printResults(issue: "Mais votações?", votes: shouldHaveMorePollOptionsVotes)
 
 /*:
 [Previous](@previous)  |  page 15 of 18  |  [Next: Exercise: Goals](@next)
