@@ -14,6 +14,7 @@
  */
 /// Represents a piggy bank that holds only pennies.
 /// - Note:
+
 class PiggyBank {
     private var pennies: UInt8 = 0
     
@@ -53,4 +54,9 @@ bank1.deposit(pennies: 100)
 bank1.balance() == 100 // This should be true
 
 // More test cases below...
+bank1.deposit(pennies: 100)
+bank1.balance() == 200
+
+//bank1.deposit(pennies: 100)
+//bank1.balance() == 100
 //: [Previous](@previous)  |  page 4 of 7  |  [Next: Making Change](@next)

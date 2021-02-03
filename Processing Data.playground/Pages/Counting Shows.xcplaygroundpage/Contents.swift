@@ -8,11 +8,33 @@
 randomShowData
 //:  - callout(Exercise): Using the comments as a guide, tally the survey results simulated in `randomShowData`.
 // Create a Tabulator instance.
+var tabulator = Tabulator()
 
 // Loop through the shows in randomShowData, incrementing the count for each one.
-
+for item in randomShowData {
+    tabulator.incrementCount(forValue: item)
+    print(item)
+}
 // Loop through the tallied shows (stored in tabulator.values), printing the information from each one.
+for item in tabulator.values {
+    print ("\(item):\(tabulator.count(forValue: item))")
 
+}
+// rodando no array de 1000 resultados
+
+
+// Create a Tabulator instance.
+var tabulatorLarge = Tabulator()
+
+// Loop through the shows in randomShowData, incrementing the count for each one.
+for item in randomShowData {
+    tabulator.incrementCount(forValue: item)
+    print(item)
+}
+// Loop through the tallied shows (stored in tabulator.values), printing the information from each one.
+for item in tabulator.values {
+    print ("\(item):\(tabulator.count(forValue: item))")
+}
 //: > There's also a `randomShowDataLargeSet` constant that simulates 1,000 survey results. Once you're satisfied that your code runs correctly, you can update your code to tabulate values from that array instead.
 /*:
 [Previous](@previous)  |  page 3 of 11  |  [Next: Data Errors](@next)

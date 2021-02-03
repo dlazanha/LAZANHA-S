@@ -16,15 +16,40 @@
  - callout(Exercise): Complete the two functions below to return the indices of the items with maximum and minimum counts in an array of `TabulatedValue`s. (Hint: You'll use the style of `for ... in` that counts counts a range of numbers from zero to the last index of the array: `for i in 0 ... tabulatedValues.count - 1`.)
  */
 func indexOfMaximum(from tabulatedValues: [TabulatedValue]) -> Int {
+    var maxIndex = 0
+    for index in 0 ..< tabulatedValues.count {
+        if tabulatedValues[index].count > tabulatedValues[maxIndex].count {
+            maxIndex = index
+        }
+    }
+    return maxIndex
 }
 
+
+
+
 func indexOfMinimum(from tabulatedValues: [TabulatedValue]) -> Int {
+    var minIndex = 0
+    for index in 0 ..< tabulatedValues.count {
+        if tabulatedValues[index].count > tabulatedValues[minIndex].count {
+            minIndex = index
+        }
+    }
+    return minIndex
+
 }
 /*:
  - callout(Exercise): Test your functions by printing out the most popular show and the least popular show. The tabulator for the survey results has already been created for you below.
  */
 print(tabulator.tabulatedValues)
 
+// melhor show
+let mostPopularShow = indexOfMaximum(from: tabulator.tabulatedValues)
+print("Melhor Show \(tabulator.tabulatedValues[mostPopularShow])")
+
+// show menos popular
+let leastPopularShow = indexOfMinimum(from: tabulator.tabulatedValues)
+print(" O show menos Popular é: \(tabulator.tabulatedValues[leastPopularShow])")
 /*:
  ## Show lists
 

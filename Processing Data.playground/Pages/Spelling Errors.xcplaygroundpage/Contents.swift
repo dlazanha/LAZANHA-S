@@ -22,13 +22,17 @@ func closestMatch(for string: String, from potentialMatches: [String]) -> String
     // Initialize the index of the best match to the first index
     var bestMatchIndex = 0
     
-    for i in 0 ..< potentialMatches.count {
-        // Get the potential match at index i
-        
+    for index in 0 ..< potentialMatches.count {
+        // Get the potential match at index (index)
+        let potentialMach = potentialMatches [index]
         // Get the edit distance from the string to the potential match
-        
+        let distance = editDistance(from: string, to: potentialMach)
         // If the distance calculated above is better than best edit distance,
         // update the best edit distance and best match index
+        if distance < bestEditDistance {
+            bestMatchIndex = index
+            bestEditDistance = distance
+        }
     }
     
     return potentialMatches[bestMatchIndex]
@@ -53,11 +57,22 @@ print("\n\n***** THIRD CLEANING PASS *****\n\n")
 print("\n\n***** TABULATION FOR VALID DATA ******\n\n")
 
 // Create a Tabulator instance.
-
+var tabulator = Tabulator ()
 // Loop through surveyData. Make a lowercase version of each value.
 //      - If the catalog contains the value, increment its count.
 //      - Otherwise, find the closest match for the value and increment the count for that.
-
+for item in surveyData {
+    let lowerItem = item.lowercased()
+    if lowercaseCatalog.contains(lowerItem) {
+        //resolve o problema de maiúscula e minuscula
+        tabulator.incrementCount(forValue: item.lowercased())
+    } else {
+        // tentar encontrar o match
+        let itemClosesMatch = closestMatch(for: lowerItem, from: lowercaseCatalog)
+        tabulator.incrementCount(forValue: itemClosesMatch)
+        print ("\(item): -> \(itemClosesMatch)")
+    }
+}
 // Loop through all tabulator values. Print only those that are contained in the lowercase version of the show catalog.
 
 // Print a header
@@ -68,11 +83,14 @@ print("\n\n***** DATA ERRORS ******\n\n")
 // Loop through all tabulator values.
 //      If a value is not contained in the lowercase show catalog:
 //      - Increase the error count
+var errorCount = 0
+
 //      - Print it
-
-// Print the error count.
-
-
+for item in tabulator.values {
+    if !showCatalog.contains(item) {  //lembrando que  o ! serve para NÃO, ou seja nao consta
+        errorCount += 1
+        print(item)
+    }
 /*:
 [Previous](@previous)  |  page 7 of 11  |  [Next: Higher-Order Information](@next)
  */
